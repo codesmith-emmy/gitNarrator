@@ -54,12 +54,12 @@ Contributions are welcome! If you'd like to add a new feature or report a bug, p
 - Push your changes to your forked repository.
 - Submit a pull request to the main repository.
 
-Please make sure to follow the project's code of conduct and refer to the [contributing.md](https://github.com/codesmith-emmy/blob/main/contributing.md) file for more details.
+Please make sure to follow the project's code of conduct and refer to the [contributing.md](https://github.com/codesmith-emmy/gitNarrator/blob/main/contributing.md) file for more details.
 
 
 ## License
 
-**gitNarrator** is licensed under the [MIT License](https://github.com/codesmith-emmy/blob/main/LICENSE).
+**gitNarrator** is licensed under the [MIT License](https://github.com/codesmith-emmy/gitNarrator/blob/main/LICENSE).
 
 
 ## Acknowledgments
