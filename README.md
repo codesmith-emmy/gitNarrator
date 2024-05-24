@@ -46,7 +46,7 @@ The app should now be running on http://localhost:3000.
 
 ## Contributing
 
-Contributions are welcome! If you'd like to add a new feature or report a bug, please follow these steps:
+This app is still under development and contributions are always welcome! If you'd like to add a new feature or report a bug, please follow these steps:
 
 - Fork the repository.
 - Create a new branch for your feature or bug fix.
