@@ -74,7 +74,7 @@ const ChatApp = () => {
       },
     ];
 
-    const parts = process.env.REACT_APP_PARTS;
+    const parts = JSON.parse(process.env.REACT_APP_PARTS);
     // const parts = [{ text: userMessage }]; // Use this for testing if you have your own API access
 
     const result = await model.generateContent({
