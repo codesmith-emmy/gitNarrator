@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 
 
 const MODEL_NAME = "gemini-1.0-pro";
-const API_KEY = process.env.APP_API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const ChatApp = () => {
   const [messages, setMessages] = useState([]);
@@ -74,7 +74,7 @@ const ChatApp = () => {
       },
     ];
 
-    const parts = process.env.APP_PARTS;
+    const parts = process.env.REACT_APP_PARTS;
     // const parts = [{ text: userMessage }]; // Use this for testing if you have your own API access
 
     const result = await model.generateContent({
