@@ -46,7 +46,7 @@ The app should now be running on http://localhost:3000.
 
 ## Contributing
 
-Contributions are welcome! If you'd like to add a new feature or report a bug, please follow these steps:
+This app is still under development and contributions are always welcome! If you'd like to add a new feature or report a bug, please follow these steps:
 
 - Fork the repository.
 - Create a new branch for your feature or bug fix.
@@ -54,7 +54,7 @@ Contributions are welcome! If you'd like to add a new feature or report a bug, p
 - Push your changes to your forked repository.
 - Submit a pull request to the main repository.
 
-Please make sure to follow the project's code of conduct and refer to the [contributing.md](https://github.com/codesmith-emmy/gitNarrator/blob/main/contributing.md) file for more details.
+Please make sure to follow the project's code of conduct and refer to the [contributing.md](https://github.com/codesmith-emmy/gitNarrator/blob/main/CONTRIBUTING.md) file for more details.
 
 
 ## License
