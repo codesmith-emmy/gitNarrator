@@ -105,6 +105,7 @@ const ChatApp = () => {
           id="user-input"
           ref={userInputRef}
           onKeyUp={handleKeyUp}
+          style={{fontSize: 20}}
           placeholder="What GitHub project would you like Brian to write about?"
         />
         <button id="send-btn" onClick={sendMessage}>
