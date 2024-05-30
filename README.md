@@ -64,5 +64,5 @@ Please make sure to follow the project's code of conduct and refer to the [contr
 
 ## Acknowledgments
 
-**gitNarrator** is powered by Google's Gemini AI 1.0 Pro, a powerful language model that enables the generation of high-quality content.
+**gitNarrator** is powered by Google's Gemini AI, a powerful language model that enables the generation of high-quality content.
 
