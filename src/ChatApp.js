@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 
 const MODEL_NAME = "gemini-1.0-pro";
 const API_KEY = process.env.REACT_APP_API_KEY;
-const prompts = process.env.REACT_APP_PROMPTS;
+// const prompts = process.env.REACT_APP_PROMPTS;
 
 const ChatApp = () => {
   const [messages, setMessages] = useState([]);
@@ -75,7 +75,7 @@ const ChatApp = () => {
     ];
 
     const parts = [
-      ...prompts,
+      // ...prompts,
       { text: userMessage }
     ];
     
