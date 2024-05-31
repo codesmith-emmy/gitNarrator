@@ -75,7 +75,7 @@ const ChatApp = () => {
     ];
 
     const parts = [
-      // ...prompts,
+      ...process.env.REACT_APP_PROMPTS,
       { text: userMessage }
     ];
     
