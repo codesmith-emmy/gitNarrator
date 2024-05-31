@@ -2,13 +2,13 @@
 
 # gitNarrator
 
-**gitNarrator** is a React application that generates well-crafted articles about GitHub projects based on user input. It leverages the power of Google's Gemini AI 1.0 Pro to generate high-quality content about the specified project.
+**gitNarrator** is a React application that generates well-crafted articles about GitHub projects based on user input. It leverages the power of Google's Gemini AI to generate high-quality content about the specified project.
 
 
 ## Features
 
 - **Search Bar:** A user-friendly search bar at the bottom of the screen allows users to query for articles about GitHub projects.
-- **AI-Powered Content Generation:** The application utilizes Google's Gemini AI 1.0 Pro to generate comprehensive articles about the requested GitHub project.
+- **AI-Powered Content Generation:** The application utilizes Google's Gemini AI to generate comprehensive articles about the requested GitHub project.
 - **Project URL Support:** Users can include the project's GitHub URL in their query to ensure the article is written about the correct project.
 - **Subtopic Support:** Users can specify subtopics they want the article to cover, allowing for more focused and relevant content.
 
