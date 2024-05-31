@@ -7,8 +7,8 @@ const MODEL_NAME = "gemini-1.0-pro";
 const API_KEY = process.env.REACT_APP_API_KEY;
 // const prompts = process.env.REACT_APP_PROMPTS;
 
-const PROMPTS_01A = process.env.REACT_APP_PROMPTS_01A;
-const PROMPTS_01B = process.env.REACT_APP_PROMPTS_01B;
+// const PROMPTS_01A = process.env.REACT_APP_PROMPTS_01A;
+// const PROMPTS_01B = process.env.REACT_APP_PROMPTS_01B;
 
 const ChatApp = () => {
   const [messages, setMessages] = useState([]);
@@ -78,8 +78,8 @@ const ChatApp = () => {
     ];
 
     const parts = [
-      { text: PROMPTS_01A },
-      { text: PROMPTS_01B },
+      { text: process.env.REACT_APP_PROMPTS_01A },
+      { text: process.env.REACT_APP_PROMPTS_01B },
       { text: userMessage }
     ];
     
