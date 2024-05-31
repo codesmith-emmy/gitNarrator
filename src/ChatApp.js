@@ -3,9 +3,9 @@ import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/ge
 import "./ChatApp.css";
 import ReactMarkdown from 'react-markdown';
 
-
 const MODEL_NAME = "gemini-1.0-pro";
 const API_KEY = process.env.REACT_APP_API_KEY;
+const prompts = process.env.REACT_APP_PROMPTS;
 
 const ChatApp = () => {
   const [messages, setMessages] = useState([]);
@@ -74,7 +74,11 @@ const ChatApp = () => {
       },
     ];
 
-    const parts = JSON.parse(process.env.REACT_APP_PARTS);
+    const parts = [
+      ...prompts,
+      { text: userMessage }
+    ];
+    
     // const parts = [{ text: userMessage }]; // Use this for testing if you have your own API access
 
     const result = await model.generateContent({
