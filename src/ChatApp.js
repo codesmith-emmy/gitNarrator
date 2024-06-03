@@ -80,10 +80,40 @@ const ChatApp = () => {
     const parts = [
       { text: process.env.REACT_APP_PROMPTS_01A },
       { text: process.env.REACT_APP_PROMPTS_01B },
+      { text: process.env.REACT_APP_PROMPTS_02A },
+      { text: process.env.REACT_APP_PROMPTS_02B },
+      { text: process.env.REACT_APP_PROMPTS_03A },
+      { text: process.env.REACT_APP_PROMPTS_03B },
+      { text: process.env.REACT_APP_PROMPTS_04A },
+      { text: process.env.REACT_APP_PROMPTS_04B },
+      { text: process.env.REACT_APP_PROMPTS_05A },
+      { text: process.env.REACT_APP_PROMPTS_05B },
+      { text: process.env.REACT_APP_PROMPTS_06A },
+      { text: process.env.REACT_APP_PROMPTS_06B },
+      { text: process.env.REACT_APP_PROMPTS_07A },
+      { text: process.env.REACT_APP_PROMPTS_07B },
+      { text: process.env.REACT_APP_PROMPTS_08A },
+      { text: process.env.REACT_APP_PROMPTS_08B },
+      { text: process.env.REACT_APP_PROMPTS_09A },
+      { text: process.env.REACT_APP_PROMPTS_09B },
+      { text: process.env.REACT_APP_PROMPTS_10A },
+      { text: process.env.REACT_APP_PROMPTS_10B },
+      { text: process.env.REACT_APP_PROMPTS_11A },
+      { text: process.env.REACT_APP_PROMPTS_11B },
+      { text: process.env.REACT_APP_PROMPTS_12A },
+      { text: process.env.REACT_APP_PROMPTS_12B },
+      { text: process.env.REACT_APP_PROMPTS_13A },
+      { text: process.env.REACT_APP_PROMPTS_13B },
+      { text: process.env.REACT_APP_PROMPTS_14A },
+      { text: process.env.REACT_APP_PROMPTS_14B },
+      { text: process.env.REACT_APP_PROMPTS_15A },
+      { text: process.env.REACT_APP_PROMPTS_15B },
+      { text: process.env.REACT_APP_PROMPTS_16A },
+      { text: process.env.REACT_APP_PROMPTS_16B },
       { text: userMessage }
     ];
     
-    // const parts = [{ text: userMessage }]; // Use this for testing if you have your own API access
+    // const parts = [{ text: userMessage }]; // Use this together with your own prompts for testing if you have your own API access
 
     const result = await model.generateContent({
       contents: [{ role: "user", parts }],
