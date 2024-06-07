@@ -54,7 +54,7 @@ This app is still under development and contributions are always welcome! If you
 - Push your changes to your forked repository.
 - Submit a pull request to the main repository.
 
-Please make sure to follow the project's code of conduct and refer to the [contributing.md](https://github.com/codesmith-emmy/gitNarrator/blob/main/CONTRIBUTING.md) file for more details.
+Please make sure to follow the project's code of conduct and refer to the [Contributing.md](https://github.com/codesmith-emmy/gitNarrator/blob/main/CONTRIBUTING.md) file for more details.
 
 
 ## License
