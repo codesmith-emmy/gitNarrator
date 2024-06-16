@@ -2,30 +2,32 @@ import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 import "./ChatApp.css";
 import ReactMarkdown from 'react-markdown';
+import defaultUserIcon from './default-user-icon.svg';
 
 const MODEL_NAME = "gemini-1.5-flash";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const ChatApp = () => {
-  const [messages, setMessages] = useState([]);
+  const [userMessages, setUserMessages] = useState([]);
+  const [aiResponses, setAiResponses] = useState([]);
   const userInputRef = useRef(null);
 
   const sendMessage = async () => {
     const userMessage = userInputRef.current.value.trim();
 
     if (userMessage) {
-      setMessages((prevMessages) => [
+      setUserMessages((prevMessages) => [
         ...prevMessages,
-        { sender: 'user', message: userMessage },
+        userMessage,
       ]);
 
       userInputRef.current.value = '';
 
       const aiResponse = await generateAiResponse(userMessage);
 
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { sender: 'ai', message: aiResponse },
+      setAiResponses((prevResponses) => [
+        ...prevResponses,
+        aiResponse,
       ]);
     }
   };
@@ -37,11 +39,13 @@ const ChatApp = () => {
   };
 
   useEffect(() => {
-    const conversation = document.getElementById('conversation');
-    if (conversation) {
-      conversation.scrollTop = conversation.scrollHeight;
+    const userArea = document.getElementById('user-message-area');
+    const aiArea = document.getElementById('response-area');
+    if (userArea && aiArea) {
+      userArea.scrollTop = userArea.scrollHeight;
+      aiArea.scrollTop = aiArea.scrollHeight;
     }
-  }, [messages]);
+  }, [userMessages, aiResponses]);
 
   const generateAiResponse = async (userMessage) => {
     const genAI = new GoogleGenerativeAI(API_KEY);
@@ -111,8 +115,6 @@ const ChatApp = () => {
       { text: "output: " }
     ];
     
-    // const parts = [{ text: userMessage }]; // Use this together with your own prompts for testing if you have your own API access
-
     const result = await model.generateContent({
       contents: [{ role: "user", parts }],
       generationConfig,
@@ -125,15 +127,36 @@ const ChatApp = () => {
 
   return (
     <div id="chat-container">
-        <div id="chat-container-background">gitNarrator</div>
-      <div id="conversation">
-        {messages.map((message, index) => (
-          <div key={index} className={message.sender}>
-              <ReactMarkdown>
-              {(message.message)}
-              </ReactMarkdown>
-          </div>
-        ))}
+      <div id="header">
+        <h1>gitNarrator</h1>
+      </div>
+      <div id="message-areas">
+        <div id="user-message-area" className="message-area">
+          <h2>User Messages</h2>
+          {userMessages.map((message, index) => (
+            <div key={index} className="message user">
+              <div className="avatar">
+                <img src={defaultUserIcon} alt="User Avatar" />
+              </div>
+              <div className="message-content">
+                <ReactMarkdown>{message}</ReactMarkdown>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div id="response-area" className="message-area">
+          <h2>AI Responses</h2>
+          {aiResponses.map((response, index) => (
+            <div key={index} className="message ai">
+              <div className="avatar">
+                <img src="ai-avatar.png" alt="AI Avatar" />
+              </div>
+              <div className="message-content">
+                <ReactMarkdown>{response}</ReactMarkdown>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <div id="input-container">
         <input
@@ -141,7 +164,7 @@ const ChatApp = () => {
           id="user-input"
           ref={userInputRef}
           onKeyUp={handleKeyUp}
-          style={{fontSize: 20}}
+          style={{ fontSize: 20 }}
           placeholder="What GitHub project would you like Brian to write about?"
         />
         <button id="send-btn" onClick={sendMessage}>
