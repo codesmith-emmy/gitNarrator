@@ -28,7 +28,7 @@ body {
     border-bottom: 1px solid #e0e0e0;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    z-index: 2; /* Ensure header is on top */
+    z-index: 2;
     position: relative;
 }
 
@@ -44,44 +44,46 @@ body {
     flex-grow: 1;
     padding: 20px;
     position: relative;
-    overflow: hidden; /* Hide overflow for better scrolling */
+    overflow: hidden; 
 }
 
 .message-area {
     flex: 1;
-    padding: 10px;
+    padding: 0 10px 10px 10px; 
     margin: 0 10px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     position: relative;
-    overflow: hidden; /* Hide overflow for better scrolling */
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
 }
 
 .message-content-area {
-    overflow-y: auto; /* Allow scrolling */
-    height: calc(100% - 40px); /* Adjust height to fit content area */
+    overflow-y: auto; 
+    height: calc(100% - 40px); 
 }
 
 .message-area h2 {
     text-align: center;
-    margin-bottom: 10px;
+    margin: 0; 
     font-size: 20px;
     color: #333;
     border-bottom: 2px solid skyblue;
-    padding-bottom: 5px;
+    padding: 10px 0; 
     position: sticky;
     top: 0;
     background-color: #f9f9f9;
-    z-index: 1; /* Ensure header is on top */
+    z-index: 1; 
 }
 
 .message {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    position: relative; /* Ensure messages are positioned correctly */
-    z-index: 0; /* Ensure messages are behind the header */
+    position: relative; 
+    z-index: 0; 
 }
 
 .message.user {
