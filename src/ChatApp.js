@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 import "./ChatApp.css";
 import ReactMarkdown from 'react-markdown';
+import defaultUserIcon from './default-user-icon.svg';
+import aiAvatarIcon from './ai-avatar.svg';
 
 const MODEL_NAME = "gemini-1.5-flash";
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -9,6 +11,13 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const ChatApp = () => {
   const [messages, setMessages] = useState([]);
   const userInputRef = useRef(null);
+  const conversationEndRef = useRef(null);
+  const userMessageAreaRef = useRef(null);
+  const aiResponseAreaRef = useRef(null);
+
+  const scrollToBottom = () => {
+    conversationEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const sendMessage = async () => {
     const userMessage = userInputRef.current.value.trim();
@@ -16,7 +25,7 @@ const ChatApp = () => {
     if (userMessage) {
       setMessages((prevMessages) => [
         ...prevMessages,
-        { sender: 'user', message: userMessage },
+        { sender: 'user', content: userMessage },
       ]);
 
       userInputRef.current.value = '';
@@ -25,7 +34,7 @@ const ChatApp = () => {
 
       setMessages((prevMessages) => [
         ...prevMessages,
-        { sender: 'ai', message: aiResponse },
+        { sender: 'ai', content: aiResponse },
       ]);
     }
   };
@@ -37,10 +46,7 @@ const ChatApp = () => {
   };
 
   useEffect(() => {
-    const conversation = document.getElementById('conversation');
-    if (conversation) {
-      conversation.scrollTop = conversation.scrollHeight;
-    }
+    scrollToBottom();
   }, [messages]);
 
   const generateAiResponse = async (userMessage) => {
@@ -111,8 +117,6 @@ const ChatApp = () => {
       { text: "output: " }
     ];
     
-    // const parts = [{ text: userMessage }]; // Use this together with your own prompts for testing if you have your own API access
-
     const result = await model.generateContent({
       contents: [{ role: "user", parts }],
       generationConfig,
@@ -123,17 +127,73 @@ const ChatApp = () => {
     return response.text();
   };
 
+  const syncScroll = (source, target) => {
+    const ratio = source.scrollTop / (source.scrollHeight - source.clientHeight);
+    target.scrollTop = ratio * (target.scrollHeight - target.clientHeight);
+  };
+
+  useEffect(() => {
+    const userMessageArea = userMessageAreaRef.current;
+    const aiResponseArea = aiResponseAreaRef.current;
+
+    const handleUserScroll = () => syncScroll(userMessageArea, aiResponseArea);
+    const handleAiScroll = () => syncScroll(aiResponseArea, userMessageArea);
+
+    if (userMessageArea && aiResponseArea) {
+      userMessageArea.addEventListener('scroll', handleUserScroll);
+      aiResponseArea.addEventListener('scroll', handleAiScroll);
+    }
+
+    return () => {
+      if (userMessageArea && aiResponseArea) {
+        userMessageArea.removeEventListener('scroll', handleUserScroll);
+        aiResponseArea.removeEventListener('scroll', handleAiScroll);
+      }
+    };
+  }, []);
+
   return (
     <div id="chat-container">
-        <div id="chat-container-background">gitNarrator</div>
-      <div id="conversation">
-        {messages.map((message, index) => (
-          <div key={index} className={message.sender}>
-              <ReactMarkdown>
-              {(message.message)}
-              </ReactMarkdown>
+      <div id="header">
+        <h1>gitNarrator</h1>
+      </div>
+      <div id="message-areas">
+        <div id="user-message-area" className="message-area">
+          <h2>User Messages</h2>
+          <div className="message-content-area" ref={userMessageAreaRef}>
+            {messages.map((message, index) => (
+              message.sender === 'user' && (
+                <div key={index} className="message user">
+                  <div className="avatar">
+                    <img src={defaultUserIcon} alt="User Avatar" />
+                  </div>
+                  <div className="message-content">
+                    <ReactMarkdown>{message.content}</ReactMarkdown>
+                  </div>
+                </div>
+              )
+            ))}
+            <div ref={conversationEndRef}></div>
           </div>
-        ))}
+        </div>
+        <div id="response-area" className="message-area">
+          <h2>AI Responses</h2>
+          <div className="message-content-area" ref={aiResponseAreaRef}>
+            {messages.map((message, index) => (
+              message.sender === 'ai' && (
+                <div key={index} className="message ai">
+                  <div className="avatar">
+                    <img src={aiAvatarIcon} alt="AI Avatar" />
+                  </div>
+                  <div className="message-content">
+                    <ReactMarkdown>{message.content}</ReactMarkdown>
+                  </div>
+                </div>
+              )
+            ))}
+            <div ref={conversationEndRef}></div>
+          </div>
+        </div>
       </div>
       <div id="input-container">
         <input
@@ -141,7 +201,7 @@ const ChatApp = () => {
           id="user-input"
           ref={userInputRef}
           onKeyUp={handleKeyUp}
-          style={{fontSize: 20}}
+          style={{ fontSize: 20 }}
           placeholder="What GitHub project would you like Brian to write about?"
         />
         <button id="send-btn" onClick={sendMessage}>
@@ -153,3 +213,4 @@ const ChatApp = () => {
 };
 
 export default ChatApp;
+  
