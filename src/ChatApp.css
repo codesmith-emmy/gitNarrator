@@ -4,8 +4,7 @@ body {
     background-color: #f4f7f6;
     color: #333;
 }
-.darkButton {
-  background-color: #333;}
+
 
 
 #chat-container {
@@ -21,6 +20,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: relative;
+    border: 2px solid skyblue;
 }
 
 #header {
@@ -28,12 +28,16 @@ body {
     padding: 20px 0;
     background-color: skyblue;
     color: white;
-    border-bottom: 1px solid #e0e0e0;
+    
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     z-index: 2;
     position: relative;
 }
+header.dark-mode {
+    background-color: black;
+  }
+
 
 #header h1 {
     margin: 0;
@@ -60,12 +64,14 @@ body {
     position: relative;
     overflow: hidden; 
     display: flex;
-    flex-direction: column;
+    flex-direction: column; border: 1px solid skyblue;
+    
 }
 
 .message-content-area {
     overflow-y: auto; 
-    height: calc(100% - 40px); 
+    height: calc(100% - 40px);
+   
 }
 
 .message-area h2 {
@@ -128,10 +134,11 @@ body {
 #input-container {
     display: flex;
     padding: 20px;
-    background-color: #f4f7f6;
+   
     border-top: 1px solid #e0e0e0;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    
 }
 
 #user-input {
@@ -141,6 +148,7 @@ body {
     border-radius: 4px;
     font-size: 16px;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    
 }
 
 #send-btn {

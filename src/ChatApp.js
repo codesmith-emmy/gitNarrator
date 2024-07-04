@@ -5,6 +5,8 @@ import ReactMarkdown from 'react-markdown';
 import defaultUserIcon from './default-user-icon.svg';
 import aiAvatarIcon from './ai-avatar.svg';
 import DarkButton from './Components/DarkButton';
+import './Components/DarkButton.css';
+ 
 const MODEL_NAME = "gemini-1.5-flash";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -154,13 +156,15 @@ const ChatApp = () => {
 
   return (
     <div id="chat-container">
+      
       <div id="header">
-        <h1>gitNarrator</h1>
-          <DarkButton />
+      <DarkButton />
+        <h1 className="title">gitNarrator</h1>
+         
       </div>
       <div id="message-areas">
         <div id="user-message-area" className="message-area">
-          <h2>User Messages</h2>
+          <h2 className='userMessages'>User Messages</h2>
           <div className="message-content-area" ref={userMessageAreaRef}>
             {messages.map((message, index) => (
               message.sender === 'user' && (
@@ -177,8 +181,10 @@ const ChatApp = () => {
             <div ref={conversationEndRef}></div>
           </div>
         </div>
+
+
         <div id="response-area" className="message-area">
-          <h2>AI Responses</h2>
+          <h2 className='aiResponses'>AI Responses</h2>
           <div className="message-content-area" ref={aiResponseAreaRef}>
             {messages.map((message, index) => (
               message.sender === 'ai' && (
@@ -192,8 +198,9 @@ const ChatApp = () => {
                 </div>
               )
             ))}
-            <div ref={conversationEndRef}></div>
+            <div ref={conversationEndRef}></div>   
           </div>
+          
         </div>
       </div>
       <div id="input-container">
@@ -204,6 +211,7 @@ const ChatApp = () => {
           onKeyUp={handleKeyUp}
           style={{ fontSize: 20 }}
           placeholder="What GitHub project would you like Brian to write about?"
+          
         />
         <button id="send-btn" onClick={sendMessage}>
           Send

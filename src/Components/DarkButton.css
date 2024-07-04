@@ -1,25 +1,35 @@
-body {
+
+  
+  body.dark-mode {
+    background-color: black;
+    color: black;
+  }
+  .header.dark-mode {
+    background-color: black;
+  }
+  .dark-mode-button {
+    appearance: none;
+    background-color:transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    outline: none;
+    position: relative;
+    width: 30px;
+  }
+  .title {    
+    text-shadow: 2px 2px 4px #000000;   
+         
+   } 
+   body {
     transition: background-color 1s ease;
   }
   
-  .dark-mode {
-    background-color: #e71313;
-    color: #fff;
-  }
-  
-  .rotate {
-    transform: rotate(180deg);
-  }
-  
-  .slide-in {
-    animation: slide-in 0.5s forwards;
-  }
-  
-  @keyframes slide-in {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
+  .buttonWrapper {
+      position: absolute;
+      top:2.2rem;
+      right: 2.5rem;
+      width: -moz-fit-content;
+      width: fit-content;
   }
