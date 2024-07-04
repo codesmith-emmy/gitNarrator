@@ -1,0 +1,25 @@
+body {
+    transition: background-color 1s ease;
+  }
+  
+  .dark-mode {
+    background-color: #e71313;
+    color: #fff;
+  }
+  
+  .rotate {
+    transform: rotate(180deg);
+  }
+  
+  .slide-in {
+    animation: slide-in 0.5s forwards;
+  }
+  
+  @keyframes slide-in {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }

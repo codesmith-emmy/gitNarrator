@@ -4,7 +4,7 @@ import "./ChatApp.css";
 import ReactMarkdown from 'react-markdown';
 import defaultUserIcon from './default-user-icon.svg';
 import aiAvatarIcon from './ai-avatar.svg';
-
+import DarkButton from './Components/DarkButton';
 const MODEL_NAME = "gemini-1.5-flash";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -156,6 +156,7 @@ const ChatApp = () => {
     <div id="chat-container">
       <div id="header">
         <h1>gitNarrator</h1>
+          <DarkButton />
       </div>
       <div id="message-areas">
         <div id="user-message-area" className="message-area">
