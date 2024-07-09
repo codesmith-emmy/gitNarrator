@@ -4,9 +4,26 @@
     background-color: black;
     color: black;
   }
-  .header.dark-mode {
-    background-color: black;
+
+  @media screen and (max-width: 454px) {
+    .title {
+      font-size: 22px !important;
+    }
   }
+  .title {    
+    text-shadow: 2px 2px 4px #000000;   
+         
+   } 
+  .dark-mode .title {
+    color: skyblue !important; ;
+  }
+   .dark-mode #header {
+    background-color: black;
+    border: 1px solid skyblue;
+
+  }
+
+
   .dark-mode-button {
     appearance: none;
     background-color:transparent;
@@ -18,18 +35,91 @@
     position: relative;
     width: 30px;
   }
-  .title {    
-    text-shadow: 2px 2px 4px #000000;   
-         
-   } 
+  
    body {
     transition: background-color 1s ease;
   }
-  
+  @media screen and (max-width: 554px) {
+    .buttonWrapper {
+      top:1.2rem !important;
+      right: 1.5rem !important;
+    }
+    
+  }
   .buttonWrapper {
       position: absolute;
       top:2.2rem;
       right: 2.5rem;
       width: -moz-fit-content;
       width: fit-content;
+      
   }
+   
+.dark-mode ::placeholder {
+  color: skyblue;
+  
+}
+.dark-mode .message.user .message-content {
+  word-wrap: break-word;
+  background-color: #081729;
+  color: skyblue;
+  text-shadow: 1px 1px 2px #000000;
+  letter-spacing: 1.15px;
+  margin-top: .25rem;
+}
+
+.dark-mode .message.ai .message-content {
+  background-color: #081729;
+  color: skyblue;
+ 
+  margin-top: .25rem;
+}
+
+.dark-mode .message-area   {
+  background-color: #1d1d1d;
+} 
+.dark-mode .avatar img    {
+  background-color: rgb(42, 105, 130);
+  border: 2px solid skyblue;
+
+  
+} 
+.dark-mode .aiResponses,
+.dark-mode .userMessages {
+  background-color: black;
+  border-radius: 0px 0px 5px 5px;
+  color: lightblue;
+  text-shadow: 1px 1px 2px #000000;
+  border-bottom: black;
+}
+@media screen and (max-width: 454px) {
+.dark-mode .aiResponses,
+.dark-mode .userMessages {
+  font-size: 18px;
+  background-color: black;
+  border-radius: 0px 0px 5px 5px;
+  color: lightblue;
+  text-shadow: 1px 1px 2px #000000;
+  border-bottom: black;
+}
+}
+.dark-mode #send-btn:hover {
+ background-color: #007bff;
+ 
+ 
+}
+.dark-mode #send-btn  {
+ background-color: #0f2a4e;
+ text-shadow: 1px 1px 2px #000000;
+ color: lightblue;
+ /* background-color: #007bff; */
+}
+ .dark-mode #message-areas {
+  background-color: black;
+ }   
+ 
+.dark-mode  #user-input   {
+  background-color: #1d1d1d !important;
+  border: 1px solid skyblue !important;
+  color: white !important;  
+}

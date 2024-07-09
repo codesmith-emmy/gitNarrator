@@ -205,14 +205,17 @@ const ChatApp = () => {
       </div>
       <div id="input-container">
         <input
+          className='user-input'
           type="text"
           id="user-input"
           ref={userInputRef}
           onKeyUp={handleKeyUp}
-          style={{ fontSize: 20 }}
+          style={{ fontSize: 20,  width: "90%" }}
+        
           placeholder="What GitHub project would you like Brian to write about?"
-          
+         
         />
+         
         <button id="send-btn" onClick={sendMessage}>
           Send
         </button>
