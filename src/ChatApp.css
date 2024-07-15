@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -47,8 +39,6 @@ body {
     position: relative;
 }
 
-
-
 #header h1 {
     margin: 0;
     font-size: 45px;
@@ -66,8 +56,7 @@ body {
     background-color: #f9f9f9;
 }
 @media  all and (max-width: 600px){
-    
- 
+     
 #message-areas {
     display: flex;
     flex-direction: column;
@@ -207,7 +196,6 @@ body {
     transition: background-color 0.3s;
     font-size: 16px;
 }
-
 
 #send-btn {
     margin-left: 10px;
